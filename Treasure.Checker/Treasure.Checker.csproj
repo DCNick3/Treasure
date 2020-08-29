@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <RootNamespace>Treasure.Checker</RootNamespace>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <PackageId>Treasure.Checker</PackageId>
+    <Version>1.0.4</Version>
+    <Authors>DCNick3</Authors>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DCNick3/Treasure</PackageProjectUrl>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Treasure.GameLogic\Treasure.GameLogic.csproj" />
+  </ItemGroup>
+
+</Project>

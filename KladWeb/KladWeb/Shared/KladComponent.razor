@@ -1,0 +1,42 @@
+@using Treasure.GameLogic.State
+
+
+<!--suppress HtmlRequiredAltAttribute -->
+<img src="assets/texture_atlas.png" style="display: none;" @ref="AtlasImageReference">
+
+<div style="display: flex">
+    <div style="float: left; padding: 10px; height: 660px; width: 660px; position: relative;">
+        <BECanvas Id="field_canvas" Width="640" Height="640" @ref=FieldCanvasReference Style="position: absolute; left: 0; top: 0; z-index: 0;"></BECanvas>
+        <BECanvas Id="walls_canvas" Width="640" Height="640" @ref=WallsCanvasReference Style="position: absolute; left: 0; top: 0; z-index: 1;"></BECanvas>
+        <BECanvas Id="players_canvas" Width="640" Height="640" @ref=PlayersCanvasReference Style="position: absolute; left: 0; top: 0; z-index: 2;"></BECanvas>
+    </div>
+    <div style="float: left; margin: 10px; flex-grow: 4; height: 640px; overflow-y: scroll" @ref="TextContainer">
+        <code @ref="TextElement">@TextContents</code>
+    </div>
+</div>
+@if (_checker.GameState.Winner == null)
+{
+    <div style="margin: 10px;">
+        <table>
+            <tr>
+                <td><button style="width: 100%;" @onclick="MoveLeft">Влево</button></td>
+                <td><button style="width: 100%;" @onclick="MoveDown">Вниз</button></td>
+                <td><button style="width: 100%;" @onclick="MoveUp">Вверх</button></td>
+                <td><button style="width: 100%;" @onclick="MoveRight">Вправо</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 100%;" @onclick="ShootLeft">Выстрел Влево</button></td>
+                <td><button style="width: 100%;" @onclick="ShootDown">Выстрел Вниз</button></td>
+                <td><button style="width: 100%;" @onclick="ShootUp">Выстрел Вверх</button></td>
+                <td><button style="width: 100%;" @onclick="ShootRight">Выстрел Вправо</button></td>
+            </tr>
+        </table>
+    </div>
+}
+<div style="margin: 10px;">
+        <button @onclick="Restart">Перегенерировать</button>
+        <button @onclick="ImportMapAsync">Закрузить карту</button>
+        <button @onclick="ExportMapAsync">Скопировать карту</button>
+</div>
+
+
